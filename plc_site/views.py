@@ -43,7 +43,13 @@ class Blog (View):
         
 
 class Activity(View):
+    template ="plc_site/description.html"
+    
+    context ={
+        'activity' : Activite.objects.all()
+        
+    }
     def get(self,request) :
-        pass
+        return render(request,self.template,self.context)
     def post(self,request):
         pass

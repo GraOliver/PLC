@@ -7,5 +7,5 @@ app_name="plc_site"
 
 urlpatterns = [
     path('',views.Blog.as_view(),name="index"),
-    path('Activity/<int:id>',views.Activity.as_view(),name="activity")
+    path('Activity/',views.Activity.as_view(),name="activity"),
 ]
