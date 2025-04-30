@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'plc_site'
 ]
 
 MIDDLEWARE = [
@@ -114,6 +116,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+#gestion de la photo
+# Configuration de la fonction de media, et de recuperation des photos
+MEDIA_URL="/media/"
+# MEDIA_ROOT=BASE_DIR.joinpath("/static/")
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 STATIC_URL = 'static/'
 
