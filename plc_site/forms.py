@@ -28,7 +28,8 @@ class PhotoForm (forms.ModelForm):
         
         widgets ={
             'caption' :forms.TextInput(attrs ={
-                'class' : 'formm-control'
+                'class' : 'form-control',
+                'placeholder' :'titre de la photo'
             }),
             
             'image' :forms.ClearableFileInput(attrs ={

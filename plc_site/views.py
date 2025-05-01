@@ -46,7 +46,8 @@ class AdminBlog(View):
     template ="plc_site/administration/admin.html"
     context ={
         'form_activity':ActivityForm(),
-        'photo_form':PhotoForm()
+        'photo_form':PhotoForm(),
+        'activity' : Activite.objects.all()
     }
     def get(self,request):
         return render(request,self.template,self.context)
@@ -55,21 +56,30 @@ class AdminBlog(View):
         activity =ActivityForm(request.POST)
         photo = PhotoForm(request.POST,request.FILES)
         
-        if all([activity.is_valid(),photo.is_valid()]):
-            photo_file =photo.save(commit=False)
-            photo_file.uploader =request.user
-            photo_file.save()
-            
-            activity_file =activity.save(commit=False)
-            activity_file.photo =photo_file
-            activity_file.save()
-            
-            return redirect("plc_site:admin")
-        else :
-            return render(request,self.template,self.context)
         
-    
-    
+        if 'enregistrer' in request.POST :
+            if all([activity.is_valid(),photo.is_valid()]):
+                photo_file =photo.save(commit=False)
+                photo_file.uploader =request.user
+                photo_file.save()
+                
+                activity_file =activity.save(commit=False)
+                activity_file.photo =photo_file
+                activity_file.save()
+                
+                return redirect("plc_site:admin")
+            else :
+                return render(request,self.template,self.context)
+        elif 'supprimer' in request.POST :
+            pass
+class SupAdminBlog (View):
+    def get (request, self,id):
+        article = get_object_or_404(Activite,id=id)
+        article.delete()
+        
+        return redirect('plc_site:admin')
+
+        
 class Activity(View):
     template ="plc_site/description.html"
     
