@@ -10,7 +10,7 @@ class Blog (View):
         produit1 =Produit.objects.get(pk =random.randint(0,100))
         
     except :
-        # produit1 =Produit.objects.get(pk=1)
+        produit1 =Produit.objects.get(pk=1)
         pass
     context= {
         'carousel' : Carousel.objects.all(),
@@ -19,6 +19,7 @@ class Blog (View):
         # 'produit' :produit1,
         'activity': Activite.objects.order_by('?')[:4],
         'team' :Team.objects.order_by('?')[:4],
+        'produit' : produit1,
         'type1' : Produit.objects.filter(cathegorie='pave')[:2],
         'type2' : Produit.objects.filter(cathegorie='block')[:2],
         'type3' : Produit.objects.filter(cathegorie='meuble')[:1],
@@ -52,8 +53,15 @@ class Activity(View):
         return render(request,self.template,self.context)
     def post(self,request):
         pass
-  
-  
+
+class Services(View):
+    template ="plc_site/services.html"
+    context ={
+        
+    }
+    def get (self, request):
+        return render(request,self.template,self.context)
+    
 # Partie administration
        
 class AdminBlog(View):
@@ -165,7 +173,7 @@ class ProduitView(View):
         return render(request,self.template,self.context)
     
     def post(self,request):
-        produit_form =PersonnelForm(request.POST)
+        produit_form =ProduitForm(request.POST)
         photo_form =PhotoForm(request.POST,request.FILES)
         
         if 'enregistrer' in request.POST :

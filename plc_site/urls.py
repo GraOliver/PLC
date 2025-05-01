@@ -8,6 +8,7 @@ app_name="plc_site"
 urlpatterns = [
     path('',views.Blog.as_view(),name="index"),
     path('Activity/',views.Activity.as_view(),name="activity"),
+    path('services/',views.Services.as_view(),name="services"),
     
     #PLC Carousel Admine setting
     path('carousel_aministration',views.CarouselView.as_view(),name ='carousel_view'),
