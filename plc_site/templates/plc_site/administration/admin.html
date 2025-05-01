@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:400,500,600%7CTeko:300,400,500%7CMaven+Pro:500">
     <link rel="stylesheet" href="{% static 'plc_site/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'plc_site/css/rt.css' %}">
+    <link rel="stylesheet" href="{% static 'plc_site/css/admin.css' %}">
     {% comment %} <link rel="stylesheet" href="{% static 'plc_site/css/fonts.css' %}"> {% endcomment %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,101 +25,17 @@
             <div class="mb-4 text-center">
                 <img src="{% static "plc_site/images/logo.jpg" %}" alt="Logo" class="img-fluid">
             </div>
-            <a href="#">Carousel</a>
-            <a href="#">Produit</a>
-            <a href="#">Personnel</a>
-            <a href="#">Blog</a>
+            <a href="{% url "plc_site:admin" %}">Blog</a>
+            <a href="{% url "plc_site:produit_view" %}">Produit</a>
+            <a href="{% url "plc_site:personnel_view" %}">Personnel</a>
+            <a href="{% url "plc_site:services_view" %}">Nos services</a>
+            <a href="{% url "plc_site:carousel_view" %}">Carousel</a>
             <a href="#">Collaborateur</a>
-            <a href="#">Nos services</a>
+            
         </div>
 
         <!-- Main Content -->
-        <div class="col-md-10">
-            <!-- Header -->
-            <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
-                <h2 class="m-0">Gestion des Activités</h2>
-                <input type="text" class="form-control w-25" placeholder="Recherche...">
-            </div>
-
-            <!-- Form Section -->
-            <form action="" method='post' enctype="multipart/form-data" accept="image/*" multiple='true'>
-                <div class="row p-3">
-                    <!-- Left Column (Form) -->
-                    <div class="col-md-6">
-                        
-                        <div class="mb-3">
-                            <label for="titre" class="">Titre</label>
-                            {{form_activity.title}}
-    
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="">Description</label>
-                            {{form_activity.description}}
-                        </div>
-                        <div class="mb-3">
-                            <label for="date" class="">Date</label>
-                            {{form_activity.date}}
-                        </div>
-                    </div>
-    
-                    <!-- Right Column (Image Preview + Upload) -->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <div id="preview-container" class="d-flex flex-wrap">
-                                <img src="{% static 'plc_sit/images/travail.jpeg' %}" alt="previsualisatin" class="preview-image mb-3" id="preview-image">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="image" class="">Uploader une image</label>
-                            {{photo_form.image}}
-                            {{photo_form.caption}}
-                        </div>
-                        <div class="d-flex gap-2">
-                            {% csrf_token %}
-                            <button class="btn btn-success" name="enregistrer">Enregistrer</button>
-                        </div>
-                    </div>
-                </div>    
-
-            </form>
-            
-            <!-- Table Section -->
-            <div class="p-3">
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Recherche dynamique...">
-                </div>
-                
-                <table class="table table-bordered table-hover">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Actions</th>
-                            <th>Titre</th>
-                            <th>Description</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for activite in activity  %}
-                            <tr>
-                                <td>
-                                    {% comment %} <a class="btn btn-sm btn-outline-primary me-1" name ='supprimer' href=> 
-                                        <i class="bi bi-pencil"></i>
-                                    </a> {% endcomment %}
-                                    <a class="btn btn-sm btn-outline-danger"href={% url "plc_site:sup_admin_blog" activite.id %}>
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                </td>
-                                <td>{{activite.title}}</td>
-                                <td></td>
-                                <td>{{activite.date}}</td>
-                            </tr>
-                        {% endfor %}
-                        
-                        <!-- Plus de lignes dynamiquement ici -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        {% block content %}{% endblock content %}
     </div>
 </div>
 

@@ -38,4 +38,98 @@ class PhotoForm (forms.ModelForm):
             
             
         }
+
+class CarouselForm(forms.ModelForm):
+    class Meta:
+        model = models.Carousel
+        fields =['title','description','sub_title','liens']
         
+        widgets ={
+            'title' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+            
+            'description' : forms.Textarea(attrs={
+                'class' : 'form-control',
+            }),
+            'sub_title' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+            'liens' : forms.TextInput(attrs={
+                'class' :'form-control'
+                
+            }),
+            
+        }
+        pass
+    pass
+
+class PersonnelForm(forms.ModelForm):
+    class Meta :
+        model = models.Team
+        fields =['name','fonction']
+        
+        widgets ={
+            'name' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+            
+            'fonction' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+        }
+        
+class ProduitForm (forms.ModelForm):
+    class Meta :
+        model = models.Produit
+        fields =['title','description','cathegorie','prix']
+        
+        widgets={
+            'title' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+            'description' : forms.Textarea(attrs={
+                'class' : 'form-control',
+            }),
+            
+            'cathegorie' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+            
+            'prix' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+        }
+        
+class CommetForme (forms.ModelForm):
+    class Meta :
+        model = models.Commentaire
+        fields =['identity','commet','phone']
+        
+        widgets={
+            'identity' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+            'comment' : forms.Textarea(attrs={
+                'class' : 'form-control',
+            }),
+            
+            'phone' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+        }
+
+class ServiceForm(forms.ModelForm):
+    class Meta :
+        model = models.Service
+        fields =['title','description']
+        
+        widgets ={
+            'title' : forms.TextInput(attrs={
+                'class' : 'form-control',
+            }),
+            
+            'description' : forms.Textarea(attrs={
+                'class' : 'form-control',
+            }),
+        }

@@ -64,3 +64,8 @@ class Intervation(models.Model):
     
     def __str__(self):
         return self.identity
+
+class Service(models.Model):
+    title =models.CharField(('Titre'),max_length=150)
+    description =models.TextField(("Detail"))
+    photo =models.ForeignKey(Photo, verbose_name=("Photo"), on_delete=models.SET_NULL,null=True)
