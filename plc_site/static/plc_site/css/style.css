@@ -20240,3 +20240,25 @@ disabled look for disabled choices in the results dropdown
 	border-radius: 8px;
 	margin-bottom: 1rem;
   }
+
+.sidebar {
+	background-color: #14532d;
+	min-height: 100vh;
+	color: white;
+}
+.sidebar a {
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding: 10px;
+}
+.sidebar a:hover {
+	background-color: #166534;
+}
+.preview-image {
+	width: 100%;
+	height: 250px;
+	border-radius: 4px;
+	object-fit: cover;
+	background-color: #f0f0f0;
+}

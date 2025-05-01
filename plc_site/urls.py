@@ -8,4 +8,5 @@ app_name="plc_site"
 urlpatterns = [
     path('',views.Blog.as_view(),name="index"),
     path('Activity/',views.Activity.as_view(),name="activity"),
+    path('administration',views.AdminBlog.as_view(),name="admin")
 ]
