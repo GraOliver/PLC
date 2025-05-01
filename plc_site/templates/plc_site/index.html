@@ -270,8 +270,8 @@
               </div>
             </div>
             <div class="col-lg-6 col-xl-12 align-self-center">
-              <div class="row row-30 justify-content-center">
-                <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft"><a class="clients-classic" href="{{partenaire}}"><img src="{% static "plc_site/images/dive.png" %}" alt="" width="270" height="117"/></a></div>
+              <div class="row row-30 justify-content-center ">
+                <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft"><a class="clients-classic cover " href="{{partenaire}}"><img src="{% static "plc_site/images/dive.png" %}" alt="" width="270" height="117"/></a></div>
                   <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft"><a class="clients-classic" href="https://livendoo.store"><img src="{% static "plc_site/images/livendo.jpg" %}" alt="" width="270" height="117"/></a></div>
                   <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft"><a class="clients-classic" href="{{partenaire}}"><img src="{% static "plc_site/images/greenfarm.jpg" %}" alt="" width="270" height="117"/></a></div>
                   <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft"><a class="clients-classic" href="{{partenaire}}"><img src="{% static "plc_site/images/farmtech.jpg" %}" alt="" width="270" height="117"/></a></div>
@@ -290,7 +290,7 @@
             {% for personne in team %}
             <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight">
               <!-- Team Classic-->
-              <article class="team-classic team-classic-lg" width="420" height="424"><a class="team-classic-figure" href="#"><img src="{{personne.photo.image.url}}" style="object-fit :cover;" alt="" width="420" height="424"/></a>
+              <article class="team-classic team-classic-lg" width="420" height="424"><a class="team-classic-figure" href="{% url "plc_site:activity" %}"><img src="{{personne.photo.image.url}}" style="object-fit :cover;" alt="" width="420" height="424"/></a>
                 <div class="team-classic-caption">
                   <h4 class="team-classic-name"><a href="#">{{personne.name}}</a></h4>
                   <p class="team-classic-status">{{personne.fonction}}</p>
@@ -323,28 +323,28 @@
                   <div class="tab-pane fade show active" id="tabs-6-1">
                     <h5 class="font-weight-normal">Nous assurons le transport</h5>
                     <p>Votre marchandise entre de bonnes mains : nous prenons en charge son transport avec fiabilité.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Erivez nous</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Erivez nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-6-2">
                     <h5 class="font-weight-normal">Une aide sociale</h5>
                     <p>Portés par une vision responsable, nous combinons impact social, excellence opérationnelle et relation de confiance avec nos clients.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-6-3">
                     <h5 class="font-weight-normal">Les services </h5>
                     <p>Every customer of RatherApp can get access to our friendly and qualified 24/7 support via chat or phone. Fell free to ask us any question!</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-6-4">
                     <h5 class="font-weight-normal">Lavisibilite</h5>
                     <p>All our apps are designed to have great usability in order to easily operate our applications. That is why our software has high ratings and lots of awards.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-6 text-center wow fadeInUp" data-wow-delay=".1s">
-              <div class="owl-carousel owl-style-1" data-items="2" data-stage-padding="0" data-loop="true" data-margin="0" data-mouse-drag="true" data-autoplay="true"><a class="box-device" href="#"><img src="{% static "plc_site/images/travail.jpeg" %}" alt="" width="313" height="580"/></a><a class="box-device" href="#"><img src="{% static "plc_site/images/education.jpeg" %}" alt="" width="313" height="580"/></a><a class="box-device" href="#"><img src="{% static "plc_site/images/transport.jpeg" %}" alt="" width="313" height="580"/></a><a class="box-device" href="#"><img src="{% static "plc_site/images/trie.jpeg" %}" alt="" width="313" height="580"/></a></div>
+              <div class="owl-carousel owl-style-1" data-items="2" data-stage-padding="0" data-loop="true" data-margin="0" data-mouse-drag="true" data-autoplay="true"><a class="box-device" href="{% url "plc_site:activity" %}"><img src="{% static "plc_site/images/travail.jpeg" %}" alt="" width="313" height="580"/></a><a class="box-device" href="{% url "plc_site:activity" %}"><img src="{% static "plc_site/images/education.jpeg" %}" alt="" width="313" height="580"/></a><a class="box-device" href="{% url "plc_site:activity" %}"><img src="{% static "plc_site/images/transport.jpeg" %}" alt="" width="313" height="580"/></a><a class="box-device" href="{% url "plc_site:activity" %}"><img src="{% static "plc_site/images/trie.jpeg" %}" alt="" width="313" height="580"/></a></div>
             </div>
           </div>
         </div>
@@ -361,7 +361,7 @@
               <!-- Quote Modern-->
               <article class="quote-modern quote-modern-custom">
                 <div class="unit unit-spacing-md align-items-center">
-                  <div class="unit-left"><a class="quote-modern-figure" href="#"><img class="img-circles" src="{{commet.photo.image.url}}" alt="" width="75" height="75"/></a></div>
+                  <div class="unit-left"><a class="quote-modern-figure" href="{% url "plc_site:activity" %}"><img class="img-circles" src="{{commet.photo.image.url}}" alt="" width="75" height="75"/></a></div>
                   <div class="unit-body">
                     <h4 class="quote-modern-cite"><a href="#">{{commet.identity}}</a></h4>
                     <p class="quote-modern-status">Client regulier</p>
@@ -457,7 +457,7 @@
             {% for activite in activity  %}
                 <div class="col-sm-6 col-lg-4 wow fadeInLeft"  data-wow-delay=".1s">
                   <!-- Post Modern-->
-                  <article class="post post-modern"><a class="post-modern-figure" href="#"><img src="{{activite.photo.image.url}}" alt="" width="370" height="307"/>
+                  <article class="post post-modern"><a class="post-modern-figure" href="{% url "plc_site:activity" %}"><img src="{{activite.photo.image.url}}" alt="" width="370" height="307"/>
                       <div class="post-modern-time">
                         <time datetime="2019-07-04"><span class="post-modern-time-month">{{activite.date}}</span></time>
                       </div></a>

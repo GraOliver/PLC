@@ -46,7 +46,7 @@ class Activity(View):
     template ="plc_site/description.html"
     
     context ={
-        'activity' : Activite.objects.all()
+        'activity' : Activite.objects.order_by('?')[:4]
         
     }
     def get(self,request) :
@@ -195,7 +195,7 @@ class ServiceView(View):
     context ={
         'service_form' : ServiceForm(),
         'photo_form':PhotoForm()
-        # 'activity' : 
+        # 'services' : 
     }
     
     def get(self,request):

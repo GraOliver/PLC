@@ -48,19 +48,20 @@
         <!-- Activité 1 -->
         <div class="row align-items-center mb-5 flex-column flex-md-row">
             <div class="col-md-6">
-            {% for photo in activity  %}
-              <img src="photo.image.url" alt="Image 1" class="activity-img">
-            {% endfor %}
-
+            {% for activite in services  %}
+              <img src="{{activite.photo.image.url}}" alt="Image 1" class="activity-img">
             </div>
             <div class="col-md-6">
             <h3>{{activite.title}}</h3>
             <p class="text-muted">📅 {{activite.date}}</p>
             <p>{{activite.description}}</p>
             </div>
+            {% endfor %}
+
+
         </div>
     
-        <!-- Activité 2 -->
+        {% comment %} <!-- Activité 2 -->
         <div class="row align-items-center mb-5 flex-column flex-md-row-reverse">
             <div class="col-md-6">
             <img src="image2a.jpg" alt="Image 1" class="activity-img">
@@ -72,7 +73,7 @@
             <p class="text-muted">📅{{activite.date}}</p>
             <p>{{activite.description}}</p>
             </div>
-        </div>
+        </div> {% endcomment %}
 
   
   </div>
