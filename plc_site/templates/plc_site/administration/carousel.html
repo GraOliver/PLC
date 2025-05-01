@@ -1,0 +1,95 @@
+{% extends "./admin.html" %}
+{% load static %}
+{% block content %}
+<div class="col-md-10">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+        <h2 class="m-0">Les Image dans le carousel</h2>
+        <input type="text" class="form-control w-25" placeholder="Recherche...">
+    </div>
+
+    <!-- Form Section -->
+    <form action="" method='post' enctype="multipart/form-data" accept="image/*" multiple='true'>
+        <div class="row p-3">
+            <!-- Left Column (Form) -->
+            <div class="col-md-6">
+                
+                <div class="mb-3">
+                    <label for="titre" class="">Titre</label>
+                    {{carousel_form.title}}
+
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="">Description</label>
+                    {{carousel_form.description}}
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="">Sous titre</label>
+                    {{carousel_form.sub_title}}
+                </div>
+
+                <div class="mb-3">
+                    <label for="date" class="">Liens bouton</label>
+                    {{carousel_form.liens}}
+                </div>
+            </div>
+
+            <!-- Right Column (Image Preview + Upload) -->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <div id="preview-container" class="d-flex flex-wrap">
+                        <img src="{% static 'plc_sit/images/travail.jpeg' %}" alt="previsualisatin" class="preview-image mb-3" id="preview-image">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    {{photo_form.image}}
+                    {{photo_form.caption}}
+                </div>
+                <div class="d-flex gap-2">
+                    {% csrf_token %}
+                    <button class="btn btn-success" name="enregistrer">Enregistrer</button>
+                </div>
+            </div>
+        </div>    
+
+    </form>
+    
+    <!-- Table Section -->
+    <div class="p-3">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Recherche dynamique...">
+        </div>
+        
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Actions</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activite in activity  %}
+                    <tr>
+                        <td>
+                            {% comment %} <a class="btn btn-sm btn-outline-primary me-1" name ='supprimer' href=> 
+                                <i class="bi bi-pencil"></i>
+                            </a> {% endcomment %}
+                            <a class="btn btn-sm btn-outline-danger"href={% url "plc_site:sup_admin_blog" activite.id  activite.photo.id %}>
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                        <td>{{activite.title}}</td>
+                        <td><img class="img" src="{{activite.photo.image.url}}"></img></td>
+                        <td>{{activite.date}}</td>
+                    </tr>
+                {% endfor %}
+                
+                <!-- Plus de lignes dynamiquement ici -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

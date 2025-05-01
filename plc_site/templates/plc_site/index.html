@@ -127,7 +127,7 @@
                 <div class="col-sm-7">
                   <h3 class="wow fadeInLeft"style="text-shadow :2px 2px 4px rgba(0,0,0,0.7)">Laissez-vous aider par nous </h3>
                   <p style ="text-shadow :4px 4px 4px rgba(0,0,0,0.7)">Cherchez vous une maison unique avec les matériaux revolutionnaire</p>
-                  <div class="group-sm group-middle group justify-content-end"><a class="button button-primary button-ujarak" href="" data-toggle="modal">Ecrivew nous</a><a class="button button-white-outline button-ujarak" href="#">Learn More</a></div>
+                  <div class="group-sm group-middle group justify-content-end"><a class="button button-primary button-ujarak" href="" data-toggle="modal">Ecrivew nous</a><a class="button button-white-outline button-ujarak" href="{% url "plc_site:activity" %}">Apprendre plus</a></div>
                 </div>
               </div>
             </div>
@@ -588,7 +588,7 @@
       </section>
 
       <!-- RD Google Map-->
-      <section class="section section-fluid">
+      {% comment %} <section class="section section-fluid">
         <!-- Google Map-->
         <section class="section">
           <div class="google-map-container" data-center="6036 Richmond hwy., Alexandria, VA, 2230" data-zoom="5" data-styles="[{&quot;featureType&quot;:&quot;administrative&quot;,&quot;elementType&quot;:&quot;labels.text.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#444444&quot;}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f2f2f2&quot;}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;poi.business&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:45}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;elementType&quot;:&quot;labels.icon&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#b4d4e1&quot;},{&quot;visibility&quot;:&quot;on&quot;}]}]">
@@ -598,5 +598,5 @@
             </ul>
           </div>
         </section>
-      </section>
+      </section> {% endcomment %}
 {% endblock content %}

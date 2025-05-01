@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import View
-from .models import Photo,Carousel,Activite,Produit,Team,Intervation,Commentaire
+from .models import Photo,Carousel,Activite,Produit,Team,Intervation,Commentaire,Service
+from .forms import PhotoForm, ActivityForm,CarouselForm,PersonnelForm,ServiceForm,ProduitForm
 import random
 # Create your views here.
 class Blog (View):
@@ -40,10 +41,174 @@ class Blog (View):
             else :
                 return render(request,self.template,{'erreur' : "il y a un probleme"})
                    
-        
-
 class Activity(View):
+    template ="plc_site/description.html"
+    
+    context ={
+        'activity' : Activite.objects.all()
+        
+    }
     def get(self,request) :
-        pass
+        return render(request,self.template,self.context)
     def post(self,request):
         pass
+  
+  
+# Partie administration
+       
+class AdminBlog(View):
+    template ="plc_site/administration/blog.html"
+    context ={
+        'form_activity':ActivityForm(),
+        'photo_form':PhotoForm(),
+        'activity' : Activite.objects.all()
+    }
+    def get(self,request):
+        return render(request,self.template,self.context)
+    
+    def post(self,request):
+        activity =ActivityForm(request.POST)
+        photo = PhotoForm(request.POST,request.FILES)
+        
+        
+        if 'enregistrer' in request.POST :
+            if all([activity.is_valid(),photo.is_valid()]):
+                photo_file =photo.save(commit=False)
+                photo_file.uploader =request.user
+                photo_file.save()
+                
+                activity_file =activity.save(commit=False)
+                activity_file.photo =photo_file
+                activity_file.save()
+                
+                return redirect("plc_site:admin")
+            else :
+                return render(request,self.template,self.context)
+class SupAdminBlog (View):
+    def get (self,request,id,id_photo):
+        article = get_object_or_404(Activite,id=id)
+        article.delete()
+        photo =get_object_or_404(Photo,id =id_photo)
+        photo.delete()
+        
+        return redirect('plc_site:admin')
+
+
+class CarouselView(View):
+    template ="plc_site/administration/carousel.html"
+    context ={
+        'carousel_form' : CarouselForm(),
+        'photo_form':PhotoForm(),
+        'activite' : Carousel.objects.all()
+    }
+    
+    def get(self,request):
+        return render(request,self.template,self.context)
+    
+    def post(self,request):
+        carousel_form =CarouselForm(request.POST)
+        photo_form =PhotoForm(request.POST,request.FILES)
+        
+        if 'enregistrer' in request.POST :
+            if all([carousel_form.is_valid(), photo_form.is_valid()]):
+                photo =photo_form.save(commit=False)
+                photo.uploader =request.user
+                photo.save()
+                
+                carousel =carousel_form.save(commit=False)
+                carousel.photo =photo
+                carousel.save()
+                
+                return redirect('plc_site:admin')
+            else :
+                return render(request,self.template,self.context)
+    
+
+class PersonneView(View):
+    template ="plc_site/administration/personnel.html"
+    context ={
+        'personnel_form' : PersonnelForm(),
+        'photo_form':PhotoForm(),
+        'activity': Team.objects.all()
+    }
+    
+    def get(self,request):
+        return render(request,self.template,self.context)
+    
+    def post(self,request):
+        personnel_form =PersonnelForm(request.POST)
+        photo_form =PhotoForm(request.POST,request.FILES)
+        
+        if 'enregistrer' in request.POST :
+            if all([personnel_form.is_valid(), photo_form.is_valid()]):
+                photo =photo_form.save(commit=False)
+                photo.uploader =request.user
+                photo.save()
+                
+                personnel =personnel_form.save(commit=False)
+                personnel.photo =photo
+                personnel.save()
+                
+                return redirect('plc_site:personnel_view')
+            else :
+                return render(request,self.template,self.context)
+
+class ProduitView(View):
+    template ="plc_site/administration/produit.html"
+    context ={
+        'produit_form' : ProduitForm(),
+        'photo_form':PhotoForm(),
+        'activity' : Produit.objects.all()
+    }
+    
+    def get(self,request):
+        return render(request,self.template,self.context)
+    
+    def post(self,request):
+        produit_form =PersonnelForm(request.POST)
+        photo_form =PhotoForm(request.POST,request.FILES)
+        
+        if 'enregistrer' in request.POST :
+            if all([produit_form.is_valid(), photo_form.is_valid()]):
+                photo =photo_form.save(commit=False)
+                photo.uploader =request.user
+                photo.save()
+                
+                produit =produit_form.save(commit=False)
+                produit.photo =photo
+                produit.save()
+                
+                return redirect('plc_site:produit_view')
+            else :
+                return render(request,self.template,self.context)
+
+class ServiceView(View):
+    template ="plc_site/administration/services.html"
+    context ={
+        'service_form' : ServiceForm(),
+        'photo_form':PhotoForm()
+        # 'activity' : 
+    }
+    
+    def get(self,request):
+        return render(request,self.template,self.context)
+        
+    def post(self, request):
+        service_form =PersonnelForm(request.POST)
+        photo_form =PhotoForm(request.POST,request.FILES)
+        
+        if 'enregistrer' in request.POST :
+            if all([service_form.is_valid(), photo_form.is_valid()]):
+                photo =photo_form.save(commit=False)
+                photo.uploader =request.user
+                photo.save()
+                
+                service =service_form.save(commit=False)
+                service.photo =photo
+                service.save()
+                
+                return redirect('plc_site:services_view')
+            else :
+                return render(request,self.template,self.context)
+ 
+
