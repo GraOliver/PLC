@@ -4,12 +4,19 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
 
 #Authentification
-class LoginForm(AuthenticationForm):
-    def __init__(self, request = ..., *args, **kwargs):
-        super().__init__(request, *args, **kwargs)
-        
+class LoginForm(forms.ModelForm):
     class Meta :
-        fields =['username']
+        model =User
+        fields =['username','password']
+        
+        widgets={
+            'username' : forms.TextInput(attrs={
+                'class':'form-control'
+            }),
+            'password' : forms.PasswordInput(attrs={
+                'class':'form-control'
+            })
+        }
 
 class UserCreationForm(UserCreationForm):
     class Meta :

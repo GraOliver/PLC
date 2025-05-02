@@ -59,10 +59,10 @@ class Activity(LoginRequiredMixin, ListView):
     def post(self,request):
         pass
 
-class Services(View):
+class Services(LoginRequiredMixin, ListView):
     template ="plc_site/services.html"
     context ={
-        
+        'services': Service.objects.order_by('?')[:4]
     }
     def get (self, request):
         return render(request,self.template,self.context)
@@ -97,7 +97,7 @@ class AdminBlog(LoginRequiredMixin, ListView):
                 return redirect("plc_site:admin")
             else :
                 return render(request,self.template,self.context)
-class SupAdminBlog (View):
+class SupAdminBlog (LoginRequiredMixin, ListView):
     def get (self,request,id,id_photo):
         article = get_object_or_404(Activite,id=id)
         article.delete()
@@ -107,7 +107,7 @@ class SupAdminBlog (View):
         return redirect('plc_site:admin')
 
 
-class CarouselView(View):
+class CarouselView(LoginRequiredMixin, ListView):
     template ="plc_site/administration/carousel.html"
     context ={
         'carousel_form' : CarouselForm(),
@@ -137,7 +137,7 @@ class CarouselView(View):
                 return render(request,self.template,self.context)
     
 
-class PersonneView(View):
+class PersonneView(LoginRequiredMixin, ListView):
     template ="plc_site/administration/personnel.html"
     context ={
         'personnel_form' : PersonnelForm(),
@@ -166,7 +166,7 @@ class PersonneView(View):
             else :
                 return render(request,self.template,self.context)
 
-class ProduitView(View):
+class ProduitView(LoginRequiredMixin, ListView):
     template ="plc_site/administration/produit.html"
     context ={
         'produit_form' : ProduitForm(),
@@ -195,7 +195,7 @@ class ProduitView(View):
             else :
                 return render(request,self.template,self.context)
 
-class ServiceView(View):
+class ServiceView(LoginRequiredMixin, ListViewgir):
     template ="plc_site/administration/services.html"
     context ={
         'service_form' : ServiceForm(),

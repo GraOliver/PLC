@@ -135,4 +135,6 @@ class ServiceForm(forms.ModelForm):
             }),
         }
 
+class IntervationForm(forms.ModelForm):
+    pass 
 

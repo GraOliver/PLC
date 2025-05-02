@@ -17,7 +17,7 @@
                     <!-- RD Navbar Toggle-->
                     <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                     <!-- RD Navbar Brand-->
-                    <div class="rd-navbar-brand"><a class="brand" href="{% url "plc_site:index" %}"><img src="{% static "plc_site/images/bandeau.jpg" %}" alt="" width="23" height="5"/></a></div>
+                    <div class="rd-navbar-brand"><a class="brand" href="{% url "plc_site:index" %}"><img src="{% static "plc_site/images/logo.jpg" %}" alt="" width="23" height="5"/></a></div>
                   </div>
                   <div class="rd-navbar-main-element">
                     <div class="rd-navbar-nav-wrap">
@@ -127,7 +127,7 @@
                 <div class="col-sm-7">
                   <h3 class="wow fadeInLeft"style="text-shadow :2px 2px 4px rgba(0,0,0,0.7)">Laissez-vous aider par nous </h3>
                   <p style ="text-shadow :4px 4px 4px rgba(0,0,0,0.7)">Cherchez vous une maison unique avec les matériaux revolutionnaire</p>
-                  <div class="group-sm group-middle group justify-content-end"><a class="button button-primary button-ujarak" href="{% url "plc_site:services" %}" data-toggle="modal">Ecrivew nous</a><a class="button button-white-outline button-ujarak" href="{% url "plc_site:services" %}">Apprendre plus</a></div>
+                  <div class="group-sm group-middle group justify-content-end"><a class="button button-primary button-ujarak" href="#modalCta" data-toggle="modal">Ecrivez nous</a><a class="button button-white-outline button-ujarak" href="{% url "plc_site:services" %}">Apprendre plus</a></div>
                 </div>
               </div>
             </div>
@@ -234,7 +234,7 @@
             <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4">
               <div class="text-width-extra-small offset-top-lg-24 wow fadeInUp">
                 <h3 class="title-decoration-lines-left">Années d'experiances</h3>
-                <p class="text-gray-500">Fort de nos 3 années d'expériance, notre entreprise a su développer une expertise solide, nous  permettant aujourd'hui d'offrir des solutions maîtrisées, fiables et adaptées aux exigences du terrain. </p><a class="button button-secondary button-pipaluk" href="">Ecrivez nous</a>
+                <p class="text-gray-500">Fort de nos 3 années d'expériance, notre entreprise a su développer une expertise solide, nous  permettant aujourd'hui d'offrir des solutions maîtrisées, fiables et adaptées aux exigences du terrain. </p><a class="button button-secondary button-pipaluk" href="#modalCta">Ecrivez nous</a>
               </div>
             </div>
             <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay=".1s">
@@ -323,22 +323,22 @@
                   <div class="tab-pane fade show active" id="tabs-6-1">
                     <h5 class="font-weight-normal">Nous assurons le transport</h5>
                     <p>Votre marchandise entre de bonnes mains : nous prenons en charge son transport avec fiabilité.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Erivez nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Erivez nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:services" %}">Apprendre plus</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-6-2">
                     <h5 class="font-weight-normal">Une aide sociale</h5>
                     <p>Portés par une vision responsable, nous combinons impact social, excellence opérationnelle et relation de confiance avec nos clients.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivez nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:services" %}">Apprendre plus</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-6-3">
                     <h5 class="font-weight-normal">Les services </h5>
                     <p>Every customer of RatherApp can get access to our friendly and qualified 24/7 support via chat or phone. Fell free to ask us any question!</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivez nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:services" %}">Apprendre plus</a></div>
                   </div>
                   <div class="tab-pane fade" id="tabs-6-4">
                     <h5 class="font-weight-normal">Lavisibilite</h5>
                     <p>All our apps are designed to have great usability in order to easily operate our applications. That is why our software has high ratings and lots of awards.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivew nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:activity" %}">Learn More</a></div>
+                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Ecrivez nous</a><a class="button button-default-outline button-wapasha" href="{% url "plc_site:services" %}">Apprendre plus</a></div>
                   </div>
                 </div>
               </div>
@@ -553,52 +553,5 @@
             <button class="button button-primary button-pipaluk" type="submit" name="commet">envoyer</button>
           </form>
         </div>
-          
-          {% comment %} <form class="rd-form rd-form-variant-2 rd-mailform"  data-form-type="contact" action='' method="post" novalidate="novalidate" >
-            {% csrf_token %}
-            <div class="row row-14 gutters-14">
-              <div class="col-md-4">
-                <div class="form-wrap">
-                  <input class="form-input" id="contact-your-name-2" type="text" name="name" data-constraints="@Required">
-                  <label class="form-label" for="contact-your-name-2">Votre nom</label>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-wrap">
-                  <input class="form-input" id="contact-email-2" type="email" name="email" data-constraints="@Email @Required">
-                  <label class="form-label" for="contact-email-2">E-mail</label>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-wrap">
-                  <input class="form-input" id="contact-phone-2" type="text" name="phone" data-constraints="@Numeric">
-                  <label class="form-label" for="contact-phone-2">Phone</label>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-wrap">
-                  <label class="form-label" for="contact-message-2">Message</label>
-                  <textarea class="form-input textarea-lg" id="contact-message-2" name="message" data-constraints="@Required"></textarea>
-                  {{erreur}}
-                </div>
-              </div>
-            </div>
-            
-            <button class="button button-primary button-pipaluk" type="submit" name="commet">envoyer</button>
-          </form>
-        </div> {% endcomment %}
       </section>
-
-      <!-- RD Google Map-->
-      {% comment %} <section class="section section-fluid">
-        <!-- Google Map-->
-        <section class="section">
-          <div class="google-map-container" data-center="6036 Richmond hwy., Alexandria, VA, 2230" data-zoom="5" data-styles="[{&quot;featureType&quot;:&quot;administrative&quot;,&quot;elementType&quot;:&quot;labels.text.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#444444&quot;}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f2f2f2&quot;}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;poi.business&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:45}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;elementType&quot;:&quot;labels.icon&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#b4d4e1&quot;},{&quot;visibility&quot;:&quot;on&quot;}]}]">
-            <div class="google-map"></div>
-            <ul class="google-map-markers">
-              <li data-location="6036 Richmond hwy., Alexandria, VA, 2230" data-description="6036 Richmond hwy., Alexandria, VA, 2230" data-icon="{% static "images/gmap_marker.png" %}" data-icon-active="{% static "images/gmap_marker_active.png" %}"></li>
-            </ul>
-          </div>
-        </section>
-      </section> {% endcomment %}
 {% endblock content %}
