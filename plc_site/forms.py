@@ -1,6 +1,7 @@
 from django import forms
 from . import models
-
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.contrib.auth.models import User
 class ActivityForm (forms.ModelForm):
     class Meta :
         model = models.Activite
@@ -133,3 +134,5 @@ class ServiceForm(forms.ModelForm):
                 'class' : 'form-control',
             }),
         }
+
+

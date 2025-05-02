@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("plc_site.urls"),name='index'),
+    path('login',include('administration.urls'),name='login'),
 ]
 #Gestion des images 
 if settings.DEBUG:

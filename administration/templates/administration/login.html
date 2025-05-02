@@ -1,0 +1,36 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block content %}
+<div class="col-md-10">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+        <h2 class="m-0">Personnel</h2>
+        <input type="text" class="form-control w-25" placeholder="Recherche...">
+    </div>
+
+    <!-- Form Section -->
+    <form action="" method='post' enctype="multipart/form-data" accept="image/*" multiple='true'>
+        <div class="d-flex justify-content-center">
+            <!-- Left Column (Form) -->
+            <div class="col-md-7">
+                
+                <div class="mb-3">
+                    <label for="titre" class="">Nom d'utilisateur</label>
+                    {{login_form.username}}
+
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="">mot de passe</label>
+                    {{login_form.password}}
+                </div>
+
+                <div class="d-flex gap-2">
+                    {% csrf_token %}
+                    <button class="btn btn-success" name="enregistrer">Enregistrer</button>
+                </div>
+            </div>
+        </div>    
+
+    </form>
+    
+{% endblock content %}

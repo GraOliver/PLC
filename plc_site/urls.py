@@ -6,6 +6,7 @@ from django.contrib.auth import views as vue # importation de la bubliothèque p
 app_name="plc_site"
 
 urlpatterns = [
+    
     path('',views.Blog.as_view(),name="index"),
     path('Activity/',views.Activity.as_view(),name="activity"),
     path('services/',views.Services.as_view(),name="services"),
@@ -19,4 +20,5 @@ urlpatterns = [
     
     path('administration',views.AdminBlog.as_view(),name="admin"),
     path('administration_supp/<int:id>/<int:id_photo>',views.SupAdminBlog.as_view(),name='sup_admin_blog'),
+
 ]

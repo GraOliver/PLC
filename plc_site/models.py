@@ -69,3 +69,6 @@ class Service(models.Model):
     title =models.CharField(('Titre'),max_length=150)
     description =models.TextField(("Detail"))
     photo =models.ForeignKey(Photo, verbose_name=("Photo"), on_delete=models.SET_NULL,null=True)
+    
+    def __str__(self):
+        return self.title

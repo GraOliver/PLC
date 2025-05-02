@@ -1,7 +1,12 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+from django.contrib.auth import login,logout,aauthenticate
+from django.contrib import messages
 from django.views.generic import View
 from .models import Photo,Carousel,Activite,Produit,Team,Intervation,Commentaire,Service
 from .forms import PhotoForm, ActivityForm,CarouselForm,PersonnelForm,ServiceForm,ProduitForm
+from django.contrib.auth.decorators import login_required
 import random
 # Create your views here.
 class Blog (View):
@@ -42,7 +47,7 @@ class Blog (View):
             else :
                 return render(request,self.template,{'erreur' : "il y a un probleme"})
                    
-class Activity(View):
+class Activity(LoginRequiredMixin, ListView):
     template ="plc_site/description.html"
     
     context ={
@@ -64,7 +69,7 @@ class Services(View):
     
 # Partie administration
        
-class AdminBlog(View):
+class AdminBlog(LoginRequiredMixin, ListView):
     template ="plc_site/administration/blog.html"
     context ={
         'form_activity':ActivityForm(),
@@ -194,15 +199,15 @@ class ServiceView(View):
     template ="plc_site/administration/services.html"
     context ={
         'service_form' : ServiceForm(),
-        'photo_form':PhotoForm()
-        # 'services' : 
+        'photo_form':PhotoForm(),
+        'services' : Service.objects.all()
     }
     
     def get(self,request):
         return render(request,self.template,self.context)
         
     def post(self, request):
-        service_form =PersonnelForm(request.POST)
+        service_form =ServiceForm(request.POST)
         photo_form =PhotoForm(request.POST,request.FILES)
         
         if 'enregistrer' in request.POST :
