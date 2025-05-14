@@ -26,12 +26,7 @@ SECRET_KEY = 'django-insecure-fu#15lv_^@@s#f_w*cqoadjw-&0!(@m!=3s_j=51ijuqupin$x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['Gracedev.pythonanywhere.com']
-=======
-ALLOWED_HOSTS = []
->>>>>>> d358619ee5c9d82c87dec32fbdba9737ffa357da
-
 
 # Application definition
 
@@ -124,7 +119,7 @@ USE_TZ = True
 #gestion de la photo
 # Configuration de la fonction de media, et de recuperation des photos
 MEDIA_URL="/media/"
-MEDIA_ROOT=os.path.join(BASE_DIR,'/static/')
+# MEDIA_ROOT=os.path.join(BASE_DIR,'/static/')
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 STATIC_ROOT =os.path.join(BASE_DIR,'static')
