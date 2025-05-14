@@ -47,7 +47,7 @@ class Blog (View):
             else :
                 return render(request,self.template,{'erreur' : "il y a un probleme"})
                    
-class Activity(LoginRequiredMixin, ListView):
+class Activity(View):
     template ="plc_site/description.html"
     
     context ={
@@ -59,7 +59,7 @@ class Activity(LoginRequiredMixin, ListView):
     def post(self,request):
         pass
 
-class Services(LoginRequiredMixin, ListView):
+class Services(View):
     template ="plc_site/services.html"
     context ={
         'services': Service.objects.order_by('?')[:4]
