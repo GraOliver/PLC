@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fu#15lv_^@@s#f_w*cqoadjw-&0!(@m!=3s_j=51ijuqupin$x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['plc.pythonanywhere.com']
+ALLOWED_HOSTS = ['Gracedev.pythonanywhere.com']
 
 
 # Application definition
@@ -123,6 +123,7 @@ MEDIA_URL="/media/"
 # MEDIA_ROOT=BASE_DIR.joinpath("/static/")
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
+STATIC_ROOT =os.path.join(BASE_DIR,'static')
 STATIC_URL = 'static/'
 LOGIN_URL ='administration:login'
 # Default primary key field type
