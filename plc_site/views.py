@@ -15,7 +15,11 @@ class Blog (View):
         produit1 =Produit.objects.get(pk =random.randint(0,100))
 
     except :
+<<<<<<< HEAD
         # produit1 =Produit.objects.get(pk=1)
+=======
+        # produit1 =Produit.objects.gpyet(pk=1)
+>>>>>>> d358619ee5c9d82c87dec32fbdba9737ffa357da
         pass
     context= {
         'carousel' : Carousel.objects.all(),
@@ -24,7 +28,11 @@ class Blog (View):
         # 'produit' :produit1,
         'activity': Activite.objects.order_by('?')[:4],
         'team' :Team.objects.order_by('?')[:4],
+<<<<<<< HEAD
         # 'produit' : produit1,
+=======
+        
+>>>>>>> d358619ee5c9d82c87dec32fbdba9737ffa357da
         'type1' : Produit.objects.filter(cathegorie='pave')[:2],
         'type2' : Produit.objects.filter(cathegorie='block')[:2],
         'type3' : Produit.objects.filter(cathegorie='meuble')[:1],
@@ -46,8 +54,13 @@ class Blog (View):
                 return redirect("plc_site:index")
             else :
                 return render(request,self.template,{'erreur' : "il y a un probleme"})
+<<<<<<< HEAD
 
 class Activity(LoginRequiredMixin, ListView):
+=======
+                   
+class Activity(View):
+>>>>>>> d358619ee5c9d82c87dec32fbdba9737ffa357da
     template ="plc_site/description.html"
 
     context ={
@@ -59,7 +72,7 @@ class Activity(LoginRequiredMixin, ListView):
     def post(self,request):
         pass
 
-class Services(LoginRequiredMixin, ListView):
+class Services(View):
     template ="plc_site/services.html"
     context ={
         'services': Service.objects.order_by('?')[:4]
