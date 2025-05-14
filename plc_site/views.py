@@ -15,7 +15,7 @@ class Blog (View):
         produit1 =Produit.objects.get(pk =random.randint(0,100))
         
     except :
-        # produit1 =Produit.objects.get(pk=1)
+        # produit1 =Produit.objects.gpyet(pk=1)
         pass
     context= {
         'carousel' : Carousel.objects.all(),

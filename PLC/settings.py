@@ -120,7 +120,7 @@ USE_TZ = True
 #gestion de la photo
 # Configuration de la fonction de media, et de recuperation des photos
 MEDIA_URL="/media/"
-# MEDIA_ROOT=BASE_DIR.joinpath("/static/")
+MEDIA_ROOT=os.path.join(BASE_DIR,'/static/')
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 STATIC_URL = 'static/'
